@@ -400,7 +400,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int id) {
 
                 Toast.makeText(MainActivity.this, String.format("%.2f",mTotalPrice) + " €",
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_SHORT).show();
 
             }
         });
