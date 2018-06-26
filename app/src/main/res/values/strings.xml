@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">HotDogClient</string>
+    <string name="_title_text">Willkommen bei Hotdog 2.0</string>
+    <string name="choose_ingredients">Bitte wähle die Zutaten für deinen Hotdog aus!</string>
+    <string name="category_bbq_sauce">BBQ-Sauce</string>
+    <string name="category_ketchup">Ketchup</string>
+    <string name="category_mayonnaise">Mayonnaise</string>
+    <string name="category_curry">Curry</string>
+    <string name="category_onion">Zwiebeln</string>
+    <string name="category_cheese">Käse</string>
+    <string name="category_price">Preis</string>
+    <string name="category_hotdog"><![CDATA[Brot & Wurst]]></string>
+    <string name="hint_price">Preisanzeige</string>
+    <string name="hotdog_price">2,00 €</string>
+    <string name="order_text">Hotdog bestellen</string>
+    <string name="order_button_text">Hotdog bestellen</string>
+    <string name="order">ORDER</string>
+    <string name="order_dialog_msg">Möchten Sie diesen Hotdog bestellen?</string>
+    <string name="confirm">Ja</string>
+    <string name="cancel">Abbrechen</string>
+</resources>
