@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         mPrice = (TextView) findViewById(R.id.price);
         mOrder = (ImageButton) findViewById(R.id.order);
 
-        mTotalPrice = 0;
+        mTotalPrice = hotdogPrice;
         mAdditionalPrice = 0;
         mDiscount = 0;
         mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
@@ -107,39 +107,15 @@ public class MainActivity extends AppCompatActivity {
                     mIsBbqSauce = true;
                     mBbqSaucePrice.setTextColor(BLACK);
                     mAdditionalPrice = mAdditionalPrice + bbqSaucePrice;
-                    mCounter = mCounter +1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    increment();
+
                 }else {
                     mBbqSauce.setImageResource(R.drawable.baseline_star_border_black_24);
                     mIsBbqSauce = false;
                     mBbqSaucePrice.setTextColor(GRAY);
                     mAdditionalPrice = mAdditionalPrice - bbqSaucePrice;
-                    mCounter = mCounter - 1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    decrement();
+
                 }
             }
         });
@@ -152,39 +128,13 @@ public class MainActivity extends AppCompatActivity {
                     mIsKetchup = true;
                     mKetchupPrice.setTextColor(BLACK);
                     mAdditionalPrice = mAdditionalPrice + ketchupPrice;
-                    mCounter = mCounter +1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    increment();
                 }else {
                     mKetchup.setImageResource(R.drawable.baseline_star_border_black_24);
                     mIsKetchup = false;
                     mKetchupPrice.setTextColor(GRAY);
                     mAdditionalPrice = mAdditionalPrice - ketchupPrice;
-                    mCounter = mCounter -1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    decrement();
                 }
             }
         });
@@ -198,40 +148,14 @@ public class MainActivity extends AppCompatActivity {
                     mIsCurry = true;
                     mCurryPrice.setTextColor(BLACK);
                     mAdditionalPrice = mAdditionalPrice + curryPrice;
-                    mCounter = mCounter +1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    increment();
 
                 }else {
                     mCurry.setImageResource(R.drawable.baseline_star_border_black_24);
                     mIsCurry = false;
                     mCurryPrice.setTextColor(GRAY);
                     mAdditionalPrice = mAdditionalPrice - curryPrice;
-                    mCounter = mCounter -1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    decrement();
                 }
             }
         });
@@ -244,39 +168,13 @@ public class MainActivity extends AppCompatActivity {
                     mIsMayonnaise = true;
                     mMayonnaisePrice.setTextColor(BLACK);
                     mAdditionalPrice = mAdditionalPrice + mayonnaisePrice;
-                    mCounter = mCounter +1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    increment();
                 }else {
                     mMayonnaise.setImageResource(R.drawable.baseline_star_border_black_24);
                     mIsMayonnaise = false;
                     mMayonnaisePrice.setTextColor(GRAY);
                     mAdditionalPrice = mAdditionalPrice - mayonnaisePrice;
-                    mCounter = mCounter -1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    decrement();
                 }
             }
         });
@@ -289,39 +187,13 @@ public class MainActivity extends AppCompatActivity {
                     mIsOnion = true;
                     mOnionPrice.setTextColor(BLACK);
                     mAdditionalPrice = mAdditionalPrice + onionPrice;
-                    mCounter = mCounter +1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    increment();
                 }else {
                     mOnion.setImageResource(R.drawable.baseline_star_border_black_24);
                     mIsOnion = false;
                     mOnionPrice.setTextColor(GRAY);
                     mAdditionalPrice = mAdditionalPrice - onionPrice;
-                    mCounter = mCounter -1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    decrement();
                 }
             }
         });
@@ -334,39 +206,13 @@ public class MainActivity extends AppCompatActivity {
                     mIsCheese = true;
                     mCheesePrice.setTextColor(BLACK);
                     mAdditionalPrice = mAdditionalPrice + cheesePrice;
-                    mCounter = mCounter +1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    increment();
                 }else {
                     mCheese.setImageResource(R.drawable.baseline_star_border_black_24);
                     mIsCheese = false;
                     mCheesePrice.setTextColor(GRAY);
                     mAdditionalPrice = mAdditionalPrice - cheesePrice;
-                    mCounter = mCounter -1;
-                    if  (mCounter== 1) {
-                        mDiscount = 0.10;
-                    }else if (mCounter== 2){
-                        mDiscount = 0.20;
-                    }else if (mCounter== 3){
-                        mDiscount = 0.30;
-                    }else if (mCounter== 4){
-                        mDiscount = 0.40;
-                    }else if (mCounter>= 5){
-                        mDiscount = 0.50;
-                    }
-                    mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
-                    mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+                    decrement();
                 }
             }
         });
@@ -384,11 +230,49 @@ public class MainActivity extends AppCompatActivity {
                 hotDogItem.setOnion(mIsOnion);
                 hotDogItem.setCheese(mIsCheese);
                 hotDogItem.setTotalPrice(mTotalPrice);
+                double i = hotDogItem.getTotalPrice();
+                Toast.makeText(MainActivity.this, String.format("%.2f", i) + " €",
+                        Toast.LENGTH_SHORT).show();
 
                 showOrderConfirmationDialog();
 
             }
         });
+    }
+
+    public void increment(){
+        mCounter = mCounter +1;
+        if  (mCounter== 1) {
+            mDiscount = 0.10;
+        }else if (mCounter== 2){
+            mDiscount = 0.20;
+        }else if (mCounter== 3){
+            mDiscount = 0.30;
+        }else if (mCounter== 4){
+            mDiscount = 0.40;
+        }else if (mCounter>= 5){
+            mDiscount = 0.50;
+        }
+        mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
+        mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
+
+    }
+
+    public void decrement(){
+        mCounter = mCounter - 1;
+        if  (mCounter== 1) {
+            mDiscount = 0.10;
+        }else if (mCounter== 2){
+            mDiscount = 0.20;
+        }else if (mCounter== 3){
+            mDiscount = 0.30;
+        }else if (mCounter== 4){
+            mDiscount = 0.40;
+        }else if (mCounter>= 5){
+            mDiscount = 0.50;
+        }
+        mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
+        mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
     }
 
 
@@ -398,6 +282,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setMessage(R.string.order_dialog_msg);
         builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+
 
                 Toast.makeText(MainActivity.this, String.format("%.2f",mTotalPrice) + " €",
                         Toast.LENGTH_SHORT).show();
