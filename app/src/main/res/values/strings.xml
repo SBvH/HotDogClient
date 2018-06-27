@@ -18,4 +18,7 @@
     <string name="order_dialog_msg">Möchtest Du diesen Hotdog bestellen?</string>
     <string name="confirm">Ja</string>
     <string name="cancel">Abbrechen</string>
+    <string name="empty_view_title_text">Vielen Dank für deine Bestellung!</string>
+    <string name="empty_view_subtitle_text">Bitte zeige beim Kauf diese Bestellnummer vor:</string>
+    <string name="return_button_text">Zurück zur Startseite</string>
 </resources>
