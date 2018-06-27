@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
         }else if (mCounter>= 5){
             mDiscount = 0.50;
         }
-        mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
+        mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount * 100 + " % (Rabatt) " +"=    " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
         mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
 
     }
@@ -271,7 +271,7 @@ public class MainActivity extends AppCompatActivity {
         }else if (mCounter>= 5){
             mDiscount = 0.50;
         }
-        mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount + " % (Rabatt) " +"=      " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
+        mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount * 100 + " % (Rabatt) " +"=    " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
         mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
     }
 

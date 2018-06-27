@@ -15,7 +15,7 @@
     <string name="order_text">Hotdog bestellen</string>
     <string name="order_button_text">Hotdog bestellen</string>
     <string name="order">ORDER</string>
-    <string name="order_dialog_msg">Möchten Sie diesen Hotdog bestellen?</string>
+    <string name="order_dialog_msg">Möchtest Du diesen Hotdog bestellen?</string>
     <string name="confirm">Ja</string>
     <string name="cancel">Abbrechen</string>
 </resources>
