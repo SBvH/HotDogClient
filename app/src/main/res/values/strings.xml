@@ -21,4 +21,7 @@
     <string name="empty_view_title_text">Vielen Dank für deine Bestellung!</string>
     <string name="empty_view_subtitle_text">Bitte zeige beim Kauf diese Bestellnummer vor:</string>
     <string name="return_button_text">Zurück zur Startseite</string>
+    <string name="loading_prices">Preis wird geladen</string>
+    <string name="load_prices">Preis wird geladen</string>
+
 </resources>

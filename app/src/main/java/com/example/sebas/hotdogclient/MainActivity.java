@@ -1,8 +1,11 @@
 package com.example.sebas.hotdogclient;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     private MobileServiceClient mClient;
     private MobileServiceTable<HotDogItem> mHotDogTable;
     private ProgressBar mProgressBar;
+    private MobileServiceTable<PriceItem> mPriceTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             // Get the Mobile Service Table instance to use
 
             mHotDogTable = mClient.getTable(HotDogItem.class);
+            mPriceTable = mClient.getTable(PriceItem.class);
 
 
         } catch (MalformedURLException e) {
@@ -116,26 +121,30 @@ public class MainActivity extends AppCompatActivity {
             createAndShowDialog(e, "Error");
         }
 
+
+
         mHotdogPrice = (TextView) findViewById(R.id.hotdog_price);
-        mHotdogPrice.setText(String.format("%.2f", hotdogPrice)+ " €");
+        mHotdogPrice.setText(R.string.load_prices);
 
         mBbqSaucePrice = (TextView) findViewById(R.id.bbq_sauce_price);
-        mBbqSaucePrice.setText("+ "+ String.format("%.2f", bbqSaucePrice)+ " €");
+        mBbqSaucePrice.setText(R.string.load_prices);
 
         mKetchupPrice = (TextView) findViewById(R.id.ketchup_price);
-        mKetchupPrice.setText("+ "+ String.format("%.2f", ketchupPrice)+ " €");
+        mKetchupPrice.setText(R.string.load_prices);
 
         mMayonnaisePrice = (TextView) findViewById(R.id.mayonnaise_price);
-        mMayonnaisePrice.setText("+ "+ String.format("%.2f", mayonnaisePrice)+ " €");
+        mMayonnaisePrice.setText(R.string.load_prices);
 
         mCurryPrice = (TextView) findViewById(R.id.curry_price);
-        mCurryPrice.setText("+ "+ String.format("%.2f", curryPrice)+ " €");
+        mCurryPrice.setText(R.string.load_prices);
 
         mOnionPrice = (TextView) findViewById(R.id.onion_price);
-        mOnionPrice.setText("+ "+ String.format("%.2f", onionPrice)+ " €");
+        mOnionPrice.setText(R.string.load_prices);
 
         mCheesePrice = (TextView) findViewById(R.id.cheese_price);
-        mCheesePrice.setText("+ "+ String.format("%.2f", cheesePrice)+ " €");
+        mCheesePrice.setText(R.string.load_prices);
+
+        refreshItemsFromTable();
 
         mBbqSauce = (ImageView) findViewById(R.id.bbq_sauce);
         mKetchup = (ImageView) findViewById(R.id.ketchup);
@@ -282,6 +291,59 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void refreshItemsFromTable() {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+
+        @SuppressLint("StaticFieldLeak") AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+
+                    final PriceItem result = mPriceTable
+                            .lookUp("7b9845b1-c0c2-4a97-878b-d7178af5ea6d")
+                            .get();
+
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mHotdogPrice.setText(String.format("%.2f",result.getHotDog()) + " €");
+                            hotdogPrice = result.getHotDog();
+                            mBbqSaucePrice.setText("+ "+ String.format("%.2f",result.getBbqSauce())+ " €");
+                            bbqSaucePrice = result.getBbqSauce();
+                            mKetchupPrice.setText("+ "+ String.format("%.2f",result.getKetchup())+ " €");
+                            ketchupPrice = result.getKetchup();
+                            mMayonnaisePrice.setText("+ "+ String.format("%.2f",result.getMayonnaise())+ " €");
+                            mayonnaisePrice = result.getMayonnaise();
+                            mCurryPrice.setText("+ "+ String.format("%.2f",result.getCurry())+ " €");
+                            curryPrice = result.getCurry();
+                            mOnionPrice.setText("+ "+ String.format("%.2f",result.getOnion())+ " €");
+                            onionPrice = result.getOnion();
+                            mCheesePrice.setText("+ "+ String.format("%.2f",result.getCheese())+ " €");
+                            cheesePrice = result.getCheese();
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        };
+
+        runAsyncTask(task);
+    }
+
+    private AsyncTask<Void, Void, Void> runAsyncTask(AsyncTask<Void, Void, Void> task) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            return task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        } else {
+            return task.execute();
+        }
     }
 
     private void createAndShowDialog(final String message, final String title) {
