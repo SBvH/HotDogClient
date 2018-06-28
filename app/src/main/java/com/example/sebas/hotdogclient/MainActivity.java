@@ -458,6 +458,7 @@ public class MainActivity extends AppCompatActivity {
                 hotDogItem.setOnion(mIsOnion);
                 hotDogItem.setCheese(mIsCheese);
                 hotDogItem.setTotalPrice(mTotalPrice);
+                hotDogItem.setComplete(false);
                 double i = hotDogItem.getTotalPrice();
                 Toast.makeText(MainActivity.this, String.format("%.2f", i) + " €",
                         Toast.LENGTH_SHORT).show();

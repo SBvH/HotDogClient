@@ -30,6 +30,9 @@ public class HotDogItem {
     @com.google.gson.annotations.SerializedName("totalprice")
     private double mTotalPrice;
 
+    @com.google.gson.annotations.SerializedName("complete")
+    private boolean mComplete;
+
     public HotDogItem() {
 
     }
@@ -40,7 +43,7 @@ public class HotDogItem {
     }
 
 
-    public HotDogItem(String hotdog, String id, boolean bbqSauce, boolean ketchup, boolean mayonnaise, boolean curry, boolean onion, boolean cheese, int totalPrice) {
+    public HotDogItem(String hotdog, String id, boolean bbqSauce, boolean ketchup, boolean mayonnaise, boolean curry, boolean onion, boolean cheese, int totalPrice, boolean complete) {
         this.setHotdog (hotdog);
         this.setId(id);
         this.setBbqSauce(bbqSauce);
@@ -50,6 +53,7 @@ public class HotDogItem {
         this.setOnion(onion);
         this.setCheese(cheese);
         this.setTotalPrice(totalPrice);
+        this.setComplete(isComplete());
     }
 
 
@@ -110,6 +114,13 @@ public class HotDogItem {
     }
     public void setTotalPrice (double totalPrice) {
         this.mTotalPrice = totalPrice;
+    }
+
+    public boolean isComplete() {
+        return mComplete;
+    }
+    public void setComplete(boolean complete) {
+        mComplete = complete;
     }
 
     @Override
