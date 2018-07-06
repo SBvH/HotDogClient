@@ -406,7 +406,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void increment(){
         mCounter = mCounter +1;
-        if  (mCounter== 2) {
+        if  (mCounter== 0) {
+            mDiscount = 0.00;
+        }else if (mCounter== 1){
+            mDiscount = 0.00;
+        }else if (mCounter== 2){
             mDiscount = 0.10;
         }else if (mCounter== 3){
             mDiscount = 0.20;
@@ -414,12 +418,8 @@ public class MainActivity extends AppCompatActivity {
             mDiscount = 0.30;
         }else if (mCounter== 5){
             mDiscount = 0.40;
-        }else if (mCounter>= 6){
+        }else if (mCounter== 6){
             mDiscount = 0.50;
-        }else if (mCounter== 1){
-            mDiscount = 0.00;
-        }else if (mCounter== 0){
-            mDiscount = 0.00;
         }
 
         mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount * 100 + " % (Rabatt) " +"=    " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
@@ -429,7 +429,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void decrement(){
         mCounter = mCounter - 1;
-        if  (mCounter== 2) {
+        if  (mCounter== 0) {
+            mDiscount = 0.00;
+        }else if (mCounter== 1){
+            mDiscount = 0.00;
+        }else if (mCounter== 2){
             mDiscount = 0.10;
         }else if (mCounter== 3){
             mDiscount = 0.20;
@@ -437,12 +441,8 @@ public class MainActivity extends AppCompatActivity {
             mDiscount = 0.30;
         }else if (mCounter== 5){
             mDiscount = 0.40;
-        }else if (mCounter>= 6){
+        }else if (mCounter== 6){
             mDiscount = 0.50;
-        }else if (mCounter== 1){
-            mDiscount = 0.00;
-        }else if (mCounter== 0){
-            mDiscount = 0.00;
         }
         mPrice.setText(String.format(" " +"%.2f", hotdogPrice)+ " € + " +String.format("%.2f", mAdditionalPrice)+  " € \n-" +String.format("%.2f", mAdditionalPrice) + " € x " + mDiscount * 100 + " % (Rabatt) " +"=    " + String.format("%.2f",hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount) +" €");
         mTotalPrice = hotdogPrice + mAdditionalPrice - mAdditionalPrice *mDiscount;
